@@ -78,6 +78,18 @@ $(function() {
       expect($body.hasClass('menu-hidden')).toBeTruthy();
     });
   });
+
+  describe('Intital Entries', function() {
+    beforeEach(function(done) {
+      loadFeed(0, function() {
+        done();
+      });
+    }, 1000);
+
+    it('There is a loadFeed and it can work', function() {
+      expect($(".feed .entry").length).not.toBe(0);
+    });
+  });
   /* TODO: Write a test that ensures the menu element is
    * hidden by default. You'll have to analyze the HTML and
    * the CSS to determine how we're performing the
