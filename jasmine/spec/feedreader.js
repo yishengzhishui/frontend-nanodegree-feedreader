@@ -90,6 +90,28 @@ $(function() {
       expect($(".feed .entry").length).not.toBe(0);
     });
   });
+
+  describe('New Feed Selection', function() {
+    var content1, content2;
+
+    beforeEach(function(done) {
+      loadFeed(1, function() {
+        content1 = $('.feed').html();
+        console.log(content1);
+
+        loadFeed(0, function() {
+          content2 = $('.feed').html();
+          console.log(content2);
+          done();
+        });
+      });
+    }, 2000);
+
+    it('load new content', function() {
+      expect(content1).not.toBe(content2);
+    });
+
+  });
   /* TODO: Write a test that ensures the menu element is
    * hidden by default. You'll have to analyze the HTML and
    * the CSS to determine how we're performing the
