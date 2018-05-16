@@ -102,9 +102,7 @@ $(function() {
 
   describe('Intital Entries', function() {
     beforeEach(function(done) {
-      loadFeed(0, function() {
-        done();
-      });
+      loadFeed(0, done);
     }, 1000);
 
     it('There is a loadFeed and it can work', function() {
