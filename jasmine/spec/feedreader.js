@@ -34,7 +34,7 @@ $(function() {
 
     it('URL are defined and not empty', function() {
       allFeeds.forEach(function(index) {
-        expect(index.url).not.toBeNull();
+        expect(index.url).toBeTruthy();
       });
     });
 
@@ -45,7 +45,7 @@ $(function() {
      */
     it('name are defined and not be empty', function() {
       allFeeds.forEach(function(index) {
-        expect(index.name).not.toBeNull();
+        expect(index.name).toBeTruthy();
       });
     });
 
@@ -85,9 +85,9 @@ $(function() {
 
     it('click menu icon can change state', function() {
       $menuIcon.trigger('click');
-      expect($body.hasClass('menu-hidden')).toBeFalsy();
+      expect($body.hasClass('menu-hidden')).not.toBe(true);
       $menuIcon.trigger('click');
-      expect($body.hasClass('menu-hidden')).toBeTruthy();
+      expect($body.hasClass('menu-hidden')).toBe(true);
     });
   });
 
